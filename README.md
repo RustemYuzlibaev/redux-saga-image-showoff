@@ -1,10 +1,8 @@
 # SagaSplash
 
-Application is build with **React** and **Redux** on `redux-sagas` for making asyncrhnous calls
+Application is build with **React** and **Redux** on `redux-sagas` for making asynchronous calls from splash.com
 
-> Live version is available at: https://rustemyuzlibaev.github.io/splash/
-
-
+> Live version is available at: https://rustemyuzlibaev.github.io/redux-saga-image-showoff/
 
 ## Project setup
 
@@ -30,4 +28,4 @@ npm run build
 npm run test
 ```
 
-### 
+###
