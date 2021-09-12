@@ -1,5 +1,4 @@
 header {
-    font-size: 1.6rem;
     font-family: 'Pacifico';
     text-align: center;
     padding: 10px 20px;
@@ -9,4 +8,15 @@ header {
     top: 0;
     background: #fff;
     z-index: 10;
+}
+
+h1 {
+    font-size: 1.6rem;
+}
+
+.button--top {
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    margin: 0;
 }

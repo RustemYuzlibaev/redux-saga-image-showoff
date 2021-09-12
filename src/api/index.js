@@ -8,6 +8,7 @@ const fetchImages = async page => {
     if (response.status >= 400) {
         throw new Error(data.errors);
     }
+    data.forEach(image => (image.favorite = false));
     return data;
 };
 

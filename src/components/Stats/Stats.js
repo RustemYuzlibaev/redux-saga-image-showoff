@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './styles.css';
 
 const Stats = ({ stats }) => {
@@ -8,7 +7,7 @@ const Stats = ({ stats }) => {
     }
 
     return (
-        <span className="stats">
+        <span className="stats" title="Downloads">
             {stats.error && '🆘 Error!'}
             {stats.isLoading && 'Loading 😭'}
             {stats.downloads !== null && `🚀 ${stats.downloads}`}

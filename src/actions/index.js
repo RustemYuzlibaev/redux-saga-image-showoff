@@ -30,6 +30,20 @@ const setImageStatsError = id => ({
     id,
 });
 
+const toggleFavoriteImage = id => ({
+    type: IMAGES.TOGGLE_FAVORITE,
+    id,
+});
+
+const toggleFavoritesTab = () => ({
+    type: IMAGES.TOGGLE_FAVORITES_TAB,
+});
+
+const deleteImage = id => ({
+    type: IMAGES.DELETE_IMAGE,
+    id,
+});
+
 export {
     loadImages,
     setImages,
@@ -37,4 +51,7 @@ export {
     loadImageStats,
     setImageStats,
     setImageStatsError,
+    toggleFavoriteImage,
+    toggleFavoritesTab,
+    deleteImage,
 };

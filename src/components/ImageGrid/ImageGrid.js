@@ -4,6 +4,8 @@ import './styles.css';
 import Button from '../Button';
 import Stats from '../Stats';
 import { loadImages } from '../../actions';
+import LikeButton from '../LikeButton/LikeButton';
+import RemoveButton from '../RemoveButton/RemoveButton';
 
 class ImageGrid extends Component {
     componentDidMount() {
@@ -11,41 +13,69 @@ class ImageGrid extends Component {
     }
 
     render() {
-        const { isLoading, images, loadImages, error, imageStats } = this.props;
+        const {
+            isLoading,
+            images,
+            loadImages,
+            imageStats,
+            isFavoritesSeen,
+        } = this.props;
+
+        let imagesToShow = images;
+        let showStub = false;
+
+        if (isFavoritesSeen) {
+            imagesToShow = images.filter(image => image.favorite !== false);
+            showStub = imagesToShow.length === 0;
+        }
+
         return (
             <div className="content">
                 <section className="grid">
-                    {images.map(image => (
-                        <div
-                            key={image.id}
-                            className={`item item-${Math.ceil(
-                                image.height / image.width,
-                            )}`}
-                        >
-                            <Stats stats={imageStats[image.id]} />
-                            <img
-                                src={image.urls.small}
-                                alt={image.user.username}
-                            />
-                        </div>
-                    ))}
+                    {showStub
+                        ? `You haven't added any images...`
+                        : imagesToShow.map(image => (
+                              <div
+                                  key={image.id}
+                                  className={`item item-${Math.ceil(
+                                      image.height / image.width,
+                                  )}`}
+                              >
+                                  <Stats stats={imageStats[image.id]} />
+                                  <img
+                                      src={image.urls.small}
+                                      alt={image.user.username}
+                                  />
+                                  <LikeButton imageId={image.id} />
+                                  <RemoveButton imageId={image.id} />
+                              </div>
+                          ))}
                 </section>
-                <Button
-                    onClick={() => !isLoading && loadImages()}
-                    loading={isLoading}
-                >
-                    Load more
-                </Button>
+                {!isFavoritesSeen ? (
+                    <Button
+                        onClick={() => !isLoading && loadImages()}
+                        loading={isLoading}
+                    >
+                        Load more
+                    </Button>
+                ) : null}
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ isLoading, images, error, imageStats }) => ({
+const mapStateToProps = ({
     isLoading,
     images,
     error,
     imageStats,
+    isFavoritesSeen,
+}) => ({
+    isLoading,
+    images,
+    error,
+    imageStats,
+    isFavoritesSeen,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,0 +1,18 @@
+.like {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    padding: 5px 18px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    font-size: 0.8rem;
+}
+
+.like:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.like--hit {
+    background: rgba(0, 0, 0, 0.5);
+}

@@ -20,16 +20,6 @@ const statsReducer = (state = {}, action) => {
                     error: false,
                 },
             };
-        case STATS.LOAD:
-            return {
-                ...state,
-                [action.id]: {
-                    isLoading: true,
-                    downloads: null,
-                    error: true,
-                },
-            };
-
         default:
             return state;
     }

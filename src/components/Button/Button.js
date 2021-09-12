@@ -1,9 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './styles.css';
 
-const Button = ({ children, loading, ...props }) => (
-    <button className="button" disabled={loading} {...props}>
+const Button = ({ children, loading, mod, ...props }) => (
+    <button className={classNames('button', mod)} disabled={loading} {...props}>
         {loading ? 'Loading...' : children}
     </button>
 );

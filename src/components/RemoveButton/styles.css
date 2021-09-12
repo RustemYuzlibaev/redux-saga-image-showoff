@@ -1,0 +1,18 @@
+.remove {
+    position: absolute;
+    right: 10px;
+    top: 86px;
+    padding: 5px 18px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    font-size: 0.8rem;
+}
+
+.remove:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.remove--hit {
+    background: rgba(0, 0, 0, 0.5);
+}
